@@ -1,0 +1,30 @@
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+  font-family: 'Times New Roman', Times, serif;
+}
+:root {
+  --background-color: #fff;
+ --second-background-color: #ddd;
+   --fixed-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  --elevate-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+ --card-color:#eee;
+  --text-color: black;
+  --main-color: #ffc800;
+  --second-color: darkgoldenrod;
+  --main-transition: 0.4s;
+}
+.dark {
+  --main-color: darkgoldenrod;
+  --second-color: #ffc800;
+  --background-color: black;
+   --card-color:#555;
+  --fixed-shadow: rgba(255, 255, 255, 0.4) 0px 1px 4px;
+  --elevate-shadow: rgba(255, 255, 255, 0.3) 0px 10px 20px -10px;
+ --second-background-color: #333;
+  --text-color: #fff;
+};

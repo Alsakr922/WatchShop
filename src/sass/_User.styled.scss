@@ -1,0 +1,60 @@
+.userContainer {
+  position: fixed !important;
+  z-index: 10000000000000000000000000;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, 30%);
+  width: 450px;
+  margin: auto;
+  padding: 80px 50px;
+  background-color: var(--second-background-color);
+  border-radius: 30px;
+  scale: 0;
+
+  .users {
+    .user,
+    .mail,
+    .password {
+      label {
+        &::after {
+          background-color: var(--card-color);
+        }
+        color: var(--second-color);
+      }
+    }
+    input {
+      background: var(--card-color);
+    }
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    h1 {
+      text-align: center;
+      font-size: 65px;
+      color: var(--second-color);
+    }
+    .userBtn {
+      display: flex;
+      font-size: 18px;
+      font-weight: 500;
+      padding: 10px 30px;
+      margin: 10px auto;
+      align-self: center;
+      justify-self: center;
+    }
+  }
+}
+.active {
+  animation: scale 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+@keyframes scale {
+  0% {
+    scale: 0;
+  }
+  85% {
+    scale: 1.1;
+  }
+  100% {
+    scale: 1;
+  }
+}
