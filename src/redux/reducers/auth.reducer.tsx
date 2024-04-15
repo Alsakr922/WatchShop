@@ -1,7 +1,7 @@
 import { USER_ACTIONS } from "../actions/types/user.types";
 
 const USER_STATE = {
-  users: [],
+  users: [] as UserType[],
   authUser: false,
 };
 export type UserType = {
