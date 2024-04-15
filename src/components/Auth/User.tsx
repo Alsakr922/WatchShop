@@ -1,27 +1,42 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useState, useCallback } from "react";
 import { Button, FloatingLabel, Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { create_user } from "../../redux/actions/auth.actions";
-import { useState } from "react";
 import { UserType } from "../../redux/reducers/auth.reducer";
 
-const User = ({ show }) => {
+type UserProps = {
+  show: boolean;
+};
+
+const User = ({ show }: UserProps) => {
   const dispatch = useDispatch();
-  const createUser = (user: UserType) => {
-    dispatch(create_user(user));
-  };
+  const createUser = useCallback(
+    (user: UserType) => {
+      dispatch(create_user(user));
+    },
+    [dispatch]
+  );
+
   const INITIAL_STATE = {
     userName: "",
     password: "",
     email: "",
   };
+
   const [User, setUser] = useState(INITIAL_STATE);
-  const handleUser = (e: { target: { name: string; value: string } }) => {
-    const { name, value } = e.target;
-    setUser({ ...User, [name]: value });
-    console.log(User)
-  };
+
+  const handleUser = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const { name, value } = e.target;
+      setUser({ ...User, [name]: value });
+      console.log(User);
+    },
+    [setUser]
+  );
+
   return (
-    <div className={`userContainer ${show && `active`}`}>
+    <div className={`userContainer ${show ? "active" : ""}`}>
       <div className="users">
         <h1>Users</h1>
         <div>
@@ -63,7 +78,11 @@ const User = ({ show }) => {
               />
             </FloatingLabel>
           </div>
-          <Button variant="warning" onClick={() => createUser(User)} className="userBtn">
+          <Button
+            variant="warning"
+            onClick={() => createUser(User)}
+            className="userBtn"
+          >
             Log In
           </Button>
         </div>
